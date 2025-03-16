@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MCQ Quiz Game</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #f4f4f4;
+        }
+        .quiz-container {
+            background: #fff;
+            padding: 20px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+            width: 100%;
+            max-width: 600px;
+        }
+        .question {
+            font-size: 18px;
+            margin-bottom: 10px;
+        }
+        .options {
+            list-style: none;
+            padding: 0;
+        }
+        .options li {
+            margin-bottom: 10px;
+        }
+        .submit-btn {
+            background: #007bff;
+            color: #fff;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <div class="quiz-container">
+        <h2>MCQ Quiz Game</h2>
+        <div class="question">Question: What is the capital of France?</div>
+        <ul class="options">
+            <li><input type="checkbox" name="option" value="Paris"> Paris</li>
+            <li><input type="checkbox" name="option" value="London"> London</li>
+            <li><input type="checkbox" name="option" value="Berlin"> Berlin</li>
+            <li><input type="checkbox" name="option" value="Madrid"> Madrid</li>
+        </ul>
+        <button class="submit-btn" onclick="submitQuiz()">Submit</button>
+        <div class="result"></div>
+    </div>
+
+    <script>
+        function submitQuiz() {
+            const options = document.getElementsByName('option');
+            let score = 0;
+            options.forEach(option => {
+                if (option.checked && option.value === 'Paris') {
+                    score++;
+                }
+            });
+            document.querySelector('.result').innerHTML = 'Your score: ' + score;
+        }
+    </script>
+</body>
+</html>
